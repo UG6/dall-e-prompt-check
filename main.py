@@ -1,15 +1,12 @@
-import openai
 from os import system, name, path
+from time import sleep
 
 
-key = open(path.join(path.dirname(__file__), "api.txt")).read()
-if key == "replace_with_your_api_key":
-    with open(path.join(path.dirname(__file__), "api.txt"), "w") as f:
-        f.write(input("Error: You forgot to enter your API key into 'api.txt' file.\n >> Please input your API key: "))
-    print("Info: API Key updated in 'api.txt' file for future use.\n")
-    key = open(path.join(path.dirname(__file__), "api.txt")).read()
-
-openai.api_key = key
+def clear_console() -> None:
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
 
 
 class Colors:
@@ -25,11 +22,27 @@ class Colors:
     RESET = '\033[0m'
 
 
-def clear_console() -> None:
-    if name == 'nt':
-        _ = system('cls')
-    else:
-        _ = system('clear')
+try:
+    import openai
+except:
+    print(f"{Colors.RED}Error:{Colors.RESET} OpenAI Module isn't installed. Downloading & Installing required "
+          f"packages. Please wait..")
+    sleep(2)
+    system("pip install openai")
+    clear_console()
+    print("Info: Required modules are now installed.")
+    import openai
+
+
+key = open(path.join(path.dirname(__file__), "api.txt")).read()
+if key == "replace_with_your_api_key" or key == "":
+    with open(path.join(path.dirname(__file__), "api.txt"), "w") as f:
+        f.write(input(f"{Colors.RED}Error:{Colors.RESET} You forgot to enter your API key into 'api.txt' file.\nVist: "
+                      f"https://beta.openai.com/account/api-keys to get your API Key.\n >> Please input your API key: "))
+    print("Info: API Key updated in 'api.txt' file for future use.\n")
+    key = open(path.join(path.dirname(__file__), "api.txt")).read()
+
+openai.api_key = key
 
 
 def flagged_or_not(my_prompt: str) -> None:
