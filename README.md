@@ -2,7 +2,7 @@
   <h1>🪄 Dall E - Prompt Checker</h1>
 </div>
 
-We all know Dall E is very strict when it comes to Prompts.
+We all know how strict Dall E is when it comes to Prompts.
 Let's all be safe and use Open AI's moderation API to check if our prompt is flagged before we use it in Dall E.
 
 ## ▶️ Demo
