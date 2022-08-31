@@ -60,6 +60,7 @@ def flagged_or_not(my_prompt: str) -> None:
 
 
 if __name__ == '__main__':
+    system("title OpenAI Prompt Checker")
     while True:
         prompt = input("Enter your prompt: ")
         flagged_or_not(prompt)
