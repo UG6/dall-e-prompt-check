@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🪄 Dall E - Prompt Checker</h1>
+  <h1>🪄 Dall E - Prompt Checker - OUTDATED</h1>
 </div>
 
 We all know how strict Dall E is when it comes to Prompts.
